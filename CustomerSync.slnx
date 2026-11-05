@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/CustomerSync.Api/CustomerSync.Api.csproj" />
+    <Project Path="src/CustomerSync.Core/CustomerSync.Core.csproj" />
+    <Project Path="src/CustomerSync.Infrastructure/CustomerSync.Infrastructure.csproj" />
+    <Project Path="src/Legacy.CustomerService/Legacy.CustomerService.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/CustomerSync.Api.Tests/CustomerSync.Api.Tests.csproj" />
+    <Project Path="tests/CustomerSync.Core.Tests/CustomerSync.Core.Tests.csproj" />
+  </Folder>
+</Solution>
