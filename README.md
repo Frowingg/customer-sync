@@ -26,7 +26,7 @@ docker compose up --build
 ```
 
 - Sync API (Swagger): http://localhost:5000/swagger
-- Legacy SOAP service (WSDL): http://localhost:5001/CustomerService.svc?wsdl
+- Legacy SOAP service endpoint: http://localhost:5001/CustomerService.svc
 
 Trigger a sync:
 
