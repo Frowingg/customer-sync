@@ -25,7 +25,7 @@ cp .env.example .env      # set a strong SQL Server password
 docker compose up --build
 ```
 
-- Sync API (Swagger): http://localhost:5000/swagger
+- Sync API: http://localhost:5000/api/sync/runs (health check: http://localhost:5000/health)
 - Legacy SOAP service endpoint: http://localhost:5001/CustomerService.svc
 
 Trigger a sync:

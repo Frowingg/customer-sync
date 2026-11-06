@@ -1,6 +1,0 @@
-@CustomerSync.Api_HostAddress = http://localhost:5227
-
-GET {{CustomerSync.Api_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
