@@ -1,10 +1,11 @@
 # CustomerSync
+![CI](https://github.com/Frowingg/customer-sync/actions/workflows/ci.yml/badge.svg)
 
 An integration service that pulls customer records from a **legacy SOAP/WCF service**, validates them, synchronizes them into **SQL Server**, and reports every data discrepancy through a REST API.
 
 The domain and all data are invented. The project exists to demonstrate a typical enterprise integration scenario: a legacy system you cannot change, a modern .NET service that consumes it, and reliable reporting on data quality.
 
-> **Status:** work in progress. See [docs/ROADMAP.md](docs/ROADMAP.md).
+> **Status:** complete as a demo. Possible next steps are listed in docs/ROADMAP.md.
 
 ## What it does
 
@@ -29,6 +30,26 @@ docker compose up --build
 - Legacy SOAP service endpoint: http://localhost:5001/CustomerService.svc
 
 Trigger a sync:
+
+First run against the seeded legacy data (30 records, 5 of them deliberately dirty):
+
+```json
+{ "id": 1, "inserted": 26, "updated": 0, "unchanged": 0, "discrepancyCount": 5 }
+```
+
+`GET /api/sync/runs/1/discrepancies`:
+
+```json
+[
+  { "type": "InvalidRecord",     "legacyId": 7,  "detail": "Email is missing or malformed." },
+  { "type": "InvalidRecord",     "legacyId": 12, "detail": "Name is required." },
+  { "type": "InvalidRecord",     "legacyId": 15, "detail": "Tax code must be 16 alphanumeric characters or 11 digits." },
+  { "type": "InvalidRecord",     "legacyId": 25, "detail": "Tax code is required." },
+  { "type": "DuplicateInSource", "legacyId": 4,  "detail": "LegacyId returned more than once; the first occurrence was kept." }
+]
+```
+
+Running the sync again changes nothing (`inserted: 0`, `unchanged: 26`): the sync is idempotent.
 
 ```bash
 curl -X POST http://localhost:5000/api/sync/runs

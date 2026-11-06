@@ -1,4 +1,4 @@
-# Architecture
+﻿# Architecture
 
 ## Overview
 
@@ -12,7 +12,7 @@ flowchart LR
         S --> D[CustomerComparer]
     end
     A -- EF Core --> DB[(SQL Server)]
-    U[Client / Swagger] -- REST --> C
+    U[Client] -- REST --> C
 ```
 
 ## Projects
@@ -22,9 +22,9 @@ flowchart LR
 | `Legacy.CustomerService` | ASP.NET Core + CoreWCF | Simulates the legacy system. SOAP contract `ICustomerService`. Seeded with deterministic data, including anomalies. |
 | `CustomerSync.Core` | Class library | Domain model, validation, comparison, sync orchestration. No dependency on EF or WCF: depends only on interfaces. |
 | `CustomerSync.Infrastructure` | Class library | EF Core `DbContext` and migrations, SQL Server store, SOAP client implementing `ICustomerSource`. |
-| `CustomerSync.Api` | ASP.NET Core Web API | REST endpoints, DI wiring, Swagger, health check. |
+| `CustomerSync.Api` | ASP.NET Core Web API | REST endpoints, DI wiring, OpenAPI, health check. |
 | `CustomerSync.Core.Tests` | xUnit | Unit tests for validation, comparison and `SyncService` (with fakes). |
-| `CustomerSync.Api.Tests` | xUnit | Endpoint tests with `WebApplicationFactory` and a fake source. |
+| `CustomerSync.Api.Tests` | xUnit | Endpoint tests with `WebApplicationFactory`, in-memory SQLite and a fake source. |
 
 Dependencies point inward: `Api` → `Infrastructure` → `Core`.
 
