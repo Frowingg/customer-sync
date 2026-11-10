@@ -6,7 +6,7 @@
         <Configuration>
           <Format>cobertura</Format>
           <ExcludeByFile>**/Migrations/*.cs,**/obj/**/*.cs</ExcludeByFile>
-          <ExcludeByAttribute>ExcludeFromCodeCoverage,GeneratedCodeAttribute,CompilerGeneratedAttribute</ExcludeByAttribute>
+          <ExcludeByAttribute>ExcludeFromCodeCoverage</ExcludeByAttribute>
         </Configuration>
       </DataCollector>
     </DataCollectors>

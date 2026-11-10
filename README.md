@@ -31,6 +31,10 @@ docker compose up --build
 
 Trigger a sync:
 
+```bash
+curl -X POST http://localhost:5000/api/sync/runs
+```
+
 First run against the seeded legacy data (30 records, 5 of them deliberately dirty):
 
 ```json
@@ -51,10 +55,6 @@ First run against the seeded legacy data (30 records, 5 of them deliberately dir
 
 Running the sync again changes nothing (`inserted: 0`, `unchanged: 26`): the sync is idempotent.
 
-```bash
-curl -X POST http://localhost:5000/api/sync/runs
-```
-
 ## Develop and test
 
 Requirements: .NET 10 SDK.
@@ -62,6 +62,12 @@ Requirements: .NET 10 SDK.
 ```bash
 dotnet build
 dotnet test
+```
+
+Test coverage: **83.6% lines · 80.4% branches** (EF Core migrations excluded). To reproduce:
+
+```bash
+dotnet test --collect:"XPlat Code Coverage" --settings coverlet.runsettings
 ```
 
 ## Tech
