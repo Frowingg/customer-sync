@@ -5,7 +5,7 @@ An integration service that pulls customer records from a **legacy SOAP/WCF serv
 
 The domain and all data are invented. The project exists to demonstrate a typical enterprise integration scenario: a legacy system you cannot change, a modern .NET service that consumes it, and reliable reporting on data quality.
 
-> **Status:** complete as a demo. Possible next steps are listed in docs/ROADMAP.md.
+> **Status:** complete as a demo. Possible next steps are listed in [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ## What it does
 

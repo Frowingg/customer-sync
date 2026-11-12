@@ -8,5 +8,6 @@
   <Folder Name="/tests/">
     <Project Path="tests/CustomerSync.Api.Tests/CustomerSync.Api.Tests.csproj" />
     <Project Path="tests/CustomerSync.Core.Tests/CustomerSync.Core.Tests.csproj" />
+    <Project Path="tests/CustomerSync.Infrastructure.Tests/CustomerSync.Infrastructure.Tests.csproj" />
   </Folder>
 </Solution>

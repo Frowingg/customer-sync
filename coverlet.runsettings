@@ -7,6 +7,7 @@
           <Format>cobertura</Format>
           <ExcludeByFile>**/Migrations/*.cs,**/obj/**/*.cs</ExcludeByFile>
           <ExcludeByAttribute>ExcludeFromCodeCoverage</ExcludeByAttribute>
+          <Exclude>[Legacy.CustomerService]*</Exclude>
         </Configuration>
       </DataCollector>
     </DataCollectors>

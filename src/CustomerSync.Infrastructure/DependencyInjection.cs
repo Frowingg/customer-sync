@@ -13,7 +13,8 @@ public static class DependencyInjection
     {
         services.AddSingleton<IDatabaseConfigurator>(new SqlServerConfigurator(connectionString));
         services.AddDbContext<CustomerSyncDbContext>((sp, options) =>
-            sp.GetRequiredService<IDatabaseConfigurator>().Configure(options));        services.AddScoped<ICustomerStore, SqlCustomerStore>();
+            sp.GetRequiredService<IDatabaseConfigurator>().Configure(options));        
+        services.AddScoped<ICustomerStore, SqlCustomerStore>();
         services.AddScoped<ICustomerSource>(_ => new SoapCustomerSource(legacyServiceUrl));
         return services;
     }
